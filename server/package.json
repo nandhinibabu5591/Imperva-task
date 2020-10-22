@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Joey Andres <joey@jsonar.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "sqlite": "^3.0.3",
+    "express": "^4.17.1"
+  }
+}
