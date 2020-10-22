@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Joey Andres <joey@jsonar.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "sqlite": "^3.0.3"
+  }
 }
