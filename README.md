@@ -1,6 +1,9 @@
 SonarK Interview Task
 =====================
 
+# Interview Task
+See [task.md](./task.md) for task description.
+
 # Requirements
 Install the following:
 * [NodeJS](https://nodejs.org/en/download/)
