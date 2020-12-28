@@ -1,39 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Suspense } from 'react';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import './App.css';
+import logo from './logo.svg';
+import Routes from './lib/routes';
 
 class App extends Component {
-  state = {
-    data: null
-  };
-
-  componentDidMount() {
-    // Call our fetch function below once the component mounts
-    this.callBackendAPI()
-        .then(res => this.setState({ data: res.express }))
-        .catch(err => console.log(err));
-  }
-  // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
-  callBackendAPI = async () => {
-    const response = await fetch('/sample_route');
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message)
-    }
-    console.log(body);
-    return body;
-  };
 
   render() {
     return (
-        <div className="App">
+      <Router>
+        <Suspense fallback={<div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
+            <h1 className="App-title">Welcome to React - Imperva interview task </h1>
           </header>
-          <p className="App-intro">{this.state.data}</p>
-        </div>
+        </div>}>
+          <Switch>
+            <Routes />
+          </Switch>
+        </Suspense>
+      </Router>
     );
   }
 }
