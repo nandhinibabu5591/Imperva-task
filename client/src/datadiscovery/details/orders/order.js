@@ -78,10 +78,10 @@ export default function OrderDetails() {
         }) : [];
     }
 
-    const setLabel = (item) => {
+    const setLabel = (item, index) => {
         return (
             <React.Fragment>
-                <span className="p-text-center">
+                <span key={index} className="p-text-center">
                     Order Number: {item.orderNumber} <span className="p-text-bold">({item.status})</span>
                     <div className="p-text-italic">{item.orderDate}</div>
                 </span>
@@ -107,13 +107,13 @@ export default function OrderDetails() {
     return (
         <div className={classes.root}>
             { msg && <DisplayMessage message={msg} />}
-            {uniqueorders && uniqueorders.map(item => {
+            {uniqueorders && uniqueorders.map((item, index) => {
                 return (
-                    <div className="p-mb-2">
+                    <div key={index} className="p-mb-2">
                         <Chip
                             icon={getIcon(item.status)}
                             label={setLabel(item)}
-                            clickableColorPrimary
+                            clickable
                             color="primary"
                             loading
                             variant='default' />
@@ -124,10 +124,10 @@ export default function OrderDetails() {
             <div className="p-grid">
                 <div className="p-col-6">
                     {
-                        uniqueorders && uniqueorders.map(item => {
+                        uniqueorders && uniqueorders.map((item, index) => {
                             return (
                                 <React.Fragment>
-                                    <Timeline align="alternate">
+                                    <Timeline key={index} align="alternate">
                                         <TimelineItem>
                                             <TimelineOppositeContent>
                                                 <Typography color="textSecondary">{item.orderDate}</Typography>

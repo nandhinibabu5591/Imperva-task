@@ -5,10 +5,9 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-const CustomerDetails = lazy(() => import('./customerdetails/customerdetails'));
-const OrderDetails = lazy(() => import('./orders/order'));
-const PaymentInfo = lazy(() => import('./payments/payment'));
+import CustomerDetails from './customerdetails/customerdetails';
+import OrderDetails from './orders/order';
+import PaymentInfo from './payments/payment';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,9 +31,7 @@ export default function DetailsPage() {
                     <Typography className={classes.heading}>Customer Details</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Suspense fallback={Loading}>
-                        <CustomerDetails />
-                    </Suspense>
+                    <CustomerDetails />
                 </AccordionDetails>
             </Accordion>
             <Accordion defaultExpanded={true}>
@@ -42,9 +39,7 @@ export default function DetailsPage() {
                     <Typography className={classes.heading}>Order Details</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Suspense fallback={Loading}>
-                        <OrderDetails />
-                    </Suspense>
+                    <OrderDetails />
                 </AccordionDetails>
             </Accordion>
             <Accordion defaultExpanded={true}>

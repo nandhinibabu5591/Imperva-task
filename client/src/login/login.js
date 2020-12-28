@@ -69,7 +69,7 @@ function Login() {
 
     return (
         <div className={classes.root}>
-            {login === true && history.push('/home') }            
+            {login  && history.push('/home') }            
             <Paper className={classes.paper}>
                 <Grid container spacing={5}>
                 {msg && <DisplayMessage message={msg} />}
